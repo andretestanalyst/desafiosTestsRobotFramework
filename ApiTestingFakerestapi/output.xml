@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20220610 14:04:23.155" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCasesAPIUsers" source="/home/andre/cuso_udemy_robotframework/ApiTestingReqres/TestCasesAPIUsers.robot">
+<kw name="Conectar minha API" library="Resources_Reqres_API" type="SETUP">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>reqresApi</arg>
+<arg>${URL_API}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220610 14:04:23.413" level="INFO">Creating Session using : alias=reqresApi, url=https://reqres.in/api/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220610 14:04:23.412" endtime="20220610 14:04:23.413"/>
+</kw>
+<status status="PASS" starttime="20220610 14:04:23.412" endtime="20220610 14:04:23.413"/>
+</kw>
+<test id="s1-t1" name="CT001 - Cadastrar novo usuario(POST)" line="9">
+<kw name="Cadastrar um novo usuario" library="Resources_Reqres_API">
+<arg>Manuel</arg>
+<arg>manuel@manuelfoiproceu.com.br</arg>
+<arg>timmaiaehmelhor</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${HEADERS}</var>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220610 14:04:23.416" level="INFO">${HEADERS} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220610 14:04:23.415" endtime="20220610 14:04:23.416"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPOSTA}</var>
+<arg>reqresApi</arg>
+<arg>/api/users</arg>
+<arg>data={"username": "${UserName}", "email": "${EmailUser}","password": "${PasswdUser}"}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220610 14:04:24.107" level="INFO">POST Request : url=https://reqres.in/api/api/users 
+ path_url=/api/api/users 
+ headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '94'} 
+ body={"username": "Manuel", "email": "manuel@manuelfoiproceu.com.br","password": "timmaiaehmelhor"} 
+ </msg>
+<msg timestamp="20220610 14:04:24.108" level="INFO">POST Response : url=https://reqres.in/api/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Fri, 10 Jun 2022 17:04:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '140', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"8c-/dzQEQc/xgm5fJCKmVc9sCxl+nA"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=yLdtdUOZqiK6sxk%2Fx3aMTqJ8qfhGvncxFtRSJO3yyljDu3gEMlFkwse7DgFDAI5kY0Sy63YJyzJlFQJOFXJ0PiONIZsGSfdULyNNhZyrpN97ov7NTyYjIvrE9hQ%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7193af94bdd30a3a-MIA', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"username":"Manuel","email":"manuel@manuelfoiproceu.com.br","password":"timmaiaehmelhor","id":"474","createdAt":"2022-06-10T17:04:23.980Z"} 
+ </msg>
+<msg timestamp="20220610 14:04:24.108" level="INFO">/home/andre/.local/lib/python3.8/site-packages/urllib3/connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220610 14:04:24.108" level="INFO">${RESPOSTA} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20220610 14:04:23.416" endtime="20220610 14:04:24.108"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPOSTA.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220610 14:04:24.108" endtime="20220610 14:04:24.110"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220610 14:04:24.111" level="INFO">${RESPOSTA} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20220610 14:04:24.110" endtime="20220610 14:04:24.111"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPOSTA.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220610 14:04:24.111" endtime="20220610 14:04:24.112"/>
+</kw>
+<status status="PASS" starttime="20220610 14:04:23.415" endtime="20220610 14:04:24.112"/>
+</kw>
+<kw name="Conferir o status code" library="Resources_Reqres_API">
+<arg>201</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPOSTA.status_code}</arg>
+<arg>${STATUSCODE_DESEJADO}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220610 14:04:24.114" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20220610 14:04:24.113" endtime="20220610 14:04:24.114"/>
+</kw>
+<status status="PASS" starttime="20220610 14:04:24.113" endtime="20220610 14:04:24.114"/>
+</kw>
+<kw name="Conferir o reason" library="Resources_Reqres_API">
+<arg>Created</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPOSTA.reason}</arg>
+<arg>${REASON_DESEJADO}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220610 14:04:24.115" endtime="20220610 14:04:24.116"/>
+</kw>
+<status status="PASS" starttime="20220610 14:04:24.114" endtime="20220610 14:04:24.116"/>
+</kw>
+<status status="PASS" starttime="20220610 14:04:23.413" endtime="20220610 14:04:24.116"/>
+</test>
+<doc>Documentacao da API: https://reqres.in/</doc>
+<status status="PASS" starttime="20220610 14:04:23.156" endtime="20220610 14:04:24.117"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCasesAPIUsers">TestCasesAPIUsers</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

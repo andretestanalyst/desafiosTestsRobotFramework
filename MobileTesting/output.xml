@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20220616 18:33:15.122" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCasesMobileTesting" source="/home/andre/curso_udemy_robotframework/MobileTesting/TestCasesMobileTesting.robot">
+<test id="s1-t1" name="CT001 - Validar cadastro de planta no jardim" line="8">
+<kw name="Open Test Application" library="ResourcesMobileTesting" type="SETUP">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://127.0.0.1:4723/wd/hub</arg>
+<arg>automationName=${ANDROID_AUTOMATION_NAME}</arg>
+<arg>platformName=${ANDROID_PLATFORM_NAME}</arg>
+<arg>app=${ANDROID_APP}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220616 18:33:15.261" endtime="20220616 18:33:29.377"/>
+</kw>
+<status status="PASS" starttime="20220616 18:33:15.261" endtime="20220616 18:33:29.377"/>
+</kw>
+<kw name="Given que estou na home do app" library="ResourcesMobileTesting">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>locator=${CABECALHO_APP_SUNFLOWER}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:29.381" endtime="20220616 18:33:31.601"/>
+</kw>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220616 18:33:32.400" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220616 18:33:31.601" endtime="20220616 18:33:32.400"/>
+</kw>
+<status status="PASS" starttime="20220616 18:33:29.379" endtime="20220616 18:33:32.400"/>
+</kw>
+<kw name="When adiciono planta no meu jardim" library="ResourcesMobileTesting">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>locator=${BOTAO_ADD_PLANTA}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220616 18:33:32.405" level="INFO">Clicking element 'id=com.google.samples.apps.sunflower:id/add_plant'.</msg>
+<status status="PASS" starttime="20220616 18:33:32.401" endtime="20220616 18:33:32.666"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>locator=${IMAGEM_PLANTA}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:32.666" endtime="20220616 18:33:34.540"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>locator=${APPLE_PLANTA}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220616 18:33:34.545" level="INFO">Clicking element 'xpath=//*[@text="Apple"]'.</msg>
+<status status="PASS" starttime="20220616 18:33:34.541" endtime="20220616 18:33:34.922"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>locator=${APPLE_PLANTA_DETALHES}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:34.922" endtime="20220616 18:33:37.078"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>locator=${BOTAO_ADD_PLANTA_DETALHES}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220616 18:33:37.082" level="INFO">Clicking element 'id=com.google.samples.apps.sunflower:id/fab'.</msg>
+<status status="PASS" starttime="20220616 18:33:37.079" endtime="20220616 18:33:37.271"/>
+</kw>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220616 18:33:39.758" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220616 18:33:37.272" endtime="20220616 18:33:39.759"/>
+</kw>
+<status status="PASS" starttime="20220616 18:33:32.401" endtime="20220616 18:33:39.760"/>
+</kw>
+<kw name="Then planta adicionada no meu jardim" library="ResourcesMobileTesting">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>locator=${BOTAO_COMPARTILHA}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:39.761" endtime="20220616 18:33:40.099"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="AppiumLibrary">
+<arg>locator=${BOTAO_ADD_PLANTA_DETALHES}</arg>
+<doc>Waits until element specified with `locator` disappears from current page.</doc>
+<status status="PASS" starttime="20220616 18:33:40.100" endtime="20220616 18:33:40.221"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>locator=${BOTAO_VOLTAR}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220616 18:33:40.226" level="INFO">Clicking element 'class=android.widget.ImageButton'.</msg>
+<status status="PASS" starttime="20220616 18:33:40.222" endtime="20220616 18:33:40.423"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>locator=${MENU_MY_GARDEN}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:40.423" endtime="20220616 18:33:42.964"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>locator=${MENU_MY_GARDEN}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220616 18:33:42.975" level="INFO">Clicking element 'xpath=//*[@content-desc="My garden"]'.</msg>
+<status status="PASS" starttime="20220616 18:33:42.964" endtime="20220616 18:33:43.271"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>locator=${APPLE_PLANTA}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:43.271" endtime="20220616 18:33:44.274"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>locator=${PLANTA_INSERIDA}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:44.274" endtime="20220616 18:33:44.640"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>locator=${PLANTA_INSERIDA_ULTIMA_REGA}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:44.640" endtime="20220616 18:33:45.008"/>
+</kw>
+<kw name="Element Should Be Visible" library="AppiumLibrary">
+<arg>locator=${PLANTA_INSERIDA_PRAZO_REGA}</arg>
+<doc>Verifies that element identified with locator is visible.</doc>
+<status status="PASS" starttime="20220616 18:33:45.008" endtime="20220616 18:33:45.548"/>
+</kw>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220616 18:33:46.927" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-3.png"&gt;&lt;img src="appium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220616 18:33:45.549" endtime="20220616 18:33:46.928"/>
+</kw>
+<status status="PASS" starttime="20220616 18:33:39.760" endtime="20220616 18:33:46.928"/>
+</kw>
+<status status="PASS" starttime="20220616 18:33:15.260" endtime="20220616 18:33:46.929"/>
+</test>
+<doc>Testes cases APP Sunflower</doc>
+<status status="PASS" starttime="20220616 18:33:15.124" endtime="20220616 18:33:46.930"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCasesMobileTesting">TestCasesMobileTesting</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
